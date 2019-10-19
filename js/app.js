@@ -24,9 +24,12 @@ Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+let allEnemies = new Array();
+
+//observed 83 to be optimal Y axis separation by trial and error
+allEnemies[0] = new Enemy(0, 62);
+allEnemies[1] = new Enemy(0, 145);
+allEnemies[2] = new Enemy(0, 228);
 
 let Player = function(x, y) {
   Enemy.call(this, x, y);
@@ -38,7 +41,6 @@ Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 Player.prototype.handleInput = function(key) {
-  // Move up one block until river
   if (key == "up" && this.y > 0) {
     this.y -= 83;
   } else if (key == "down" && this.y < 400) {
@@ -52,17 +54,6 @@ Player.prototype.handleInput = function(key) {
     this.y = 405;
   }
 };
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-let allEnemies = new Array();
-
-//observed 83 to be optimal y separation by trial and error
-allEnemies[0] = new Enemy(0, 62);
-allEnemies[1] = new Enemy(0, 145);
-allEnemies[2] = new Enemy(0, 228);
 
 let player = new Player(200, 405);
 
