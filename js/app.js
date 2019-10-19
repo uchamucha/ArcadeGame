@@ -36,7 +36,18 @@ let Player = function(x, y) {
   this.sprite = "images/char-boy.png";
 };
 
-Player.prototype.update = function(dt) {};
+Player.prototype.update = function() {
+  allEnemies.forEach(function(bug) {
+    if (
+      player.x - bug.x < 80 &&
+      player.x - bug.x > -80 &&
+      (player.y - bug.y < 70 && player.y - bug.y > -70)
+    ) {
+      player.x = 200;
+      player.y = 405;
+    }
+  });
+};
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
