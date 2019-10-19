@@ -47,6 +47,13 @@ Player.prototype.update = function() {
       player.y = 405;
     }
   });
+
+  if (player.y < 0) {
+    setTimeout(() => {
+      player.x = 200;
+      player.y = 405;
+    }, 250);
+  }
 };
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -68,8 +75,6 @@ Player.prototype.handleInput = function(key) {
 
 let player = new Player(200, 405);
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener("keyup", function(e) {
   var allowedKeys = {
     37: "left",
