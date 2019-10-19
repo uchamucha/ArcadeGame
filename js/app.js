@@ -9,6 +9,11 @@ var Enemy = function(x, y, speed) {
 //Update position x
 Enemy.prototype.update = function(dt) {
   this.x += this.speed * dt;
+
+  if (this.x > 500) {
+    this.x = -100;
+    this.speed = 200; //hVel randomizer
+  }
 };
 
 // Draw the enemy on the screen
