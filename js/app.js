@@ -1,8 +1,11 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+var Enemy = function(x, y) {
   this.x = x;
   this.y = y;
-  this.speed = speed;
+  this.randomizer = function() {
+    return 100 * Math.random() + 100;
+  };
+  this.speed = this.randomizer();
   this.sprite = "images/enemy-bug.png";
 };
 
@@ -12,7 +15,7 @@ Enemy.prototype.update = function(dt) {
 
   if (this.x > 500) {
     this.x = -100;
-    this.speed = 200; //hVel randomizer
+    this.speed = this.randomizer();
   }
 };
 
@@ -57,9 +60,9 @@ Player.prototype.handleInput = function(key) {
 let allEnemies = new Array();
 
 //observed 83 to be optimal y separation by trial and error
-allEnemies[0] = new Enemy(0, 62, 50);
-allEnemies[1] = new Enemy(0, 145, 50);
-allEnemies[2] = new Enemy(0, 228, 50);
+allEnemies[0] = new Enemy(0, 62);
+allEnemies[1] = new Enemy(0, 145);
+allEnemies[2] = new Enemy(0, 228);
 
 let player = new Player(200, 405);
 
