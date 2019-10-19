@@ -8,7 +8,7 @@ var Enemy = function(x, y, speed) {
 
 //Update position x
 Enemy.prototype.update = function(dt) {
-  this.x = this.speed * dt;
+  this.x += this.speed * dt;
 };
 
 // Draw the enemy on the screen
@@ -35,7 +35,13 @@ Player.prototype.handleInput = function() {};
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-let player = new Player(100, 100);
+let allEnemies = new Array();
+
+allEnemies[0] = new Enemy(0, 10, 50);
+allEnemies[1] = new Enemy(0, 20, 50);
+allEnemies[2] = new Enemy(0, 30, 50);
+
+let player = new Player(50, 50);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
