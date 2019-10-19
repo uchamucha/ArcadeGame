@@ -37,11 +37,12 @@ Player.prototype.handleInput = function() {};
 
 let allEnemies = new Array();
 
-allEnemies[0] = new Enemy(0, 10, 50);
-allEnemies[1] = new Enemy(0, 20, 50);
-allEnemies[2] = new Enemy(0, 30, 50);
+//observed 83 to be optimal y separation by trial and error
+allEnemies[0] = new Enemy(0, 62, 50);
+allEnemies[1] = new Enemy(0, 145, 50);
+allEnemies[2] = new Enemy(0, 228, 50);
 
-let player = new Player(50, 50);
+let player = new Player(200, 425);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
