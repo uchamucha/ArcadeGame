@@ -43,15 +43,18 @@ let Player = function(x, y) {
 
 // Update Player position on the canvas
 Player.prototype.update = function() {
+  //saving "this" to use it in inner scope.
+  let playerObj = this;
+
   // Collision detection!
   allEnemies.forEach(function(bug) {
     if (
-      player.x - bug.x < 80 &&
-      player.x - bug.x > -80 &&
-      (player.y - bug.y < 70 && player.y - bug.y > -70)
+      playerObj.x - bug.x < 80 &&
+      playerObj.x - bug.x > -80 &&
+      (playerObj.y - bug.y < 70 && playerObj.y - bug.y > -70)
     ) {
-      player.x = 200;
-      player.y = 405;
+      playerObj.x = 200;
+      playerObj.y = 405;
     }
   });
 
