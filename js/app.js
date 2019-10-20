@@ -54,14 +54,6 @@ Player.prototype.update = function() {
       player.y = 405;
     }
   });
-
-  // Reset player after reaching river
-  if (player.y < 0) {
-    setTimeout(() => {
-      player.x = 200;
-      player.y = 405;
-    }, 250);
-  }
 };
 
 // Render player on the screen
@@ -79,9 +71,14 @@ Player.prototype.handleInput = function(key) {
     this.x -= 100;
   } else if (key == "right" && this.x < 400) {
     this.x += 100;
-  } else if (this.y < 0) {
-    this.x = 200;
-    this.y = 405;
+  }
+
+  //Reset player after reaching river
+  else if (this.y < 0) {
+    setTimeout(() => {
+      player.x = 200;
+      player.y = 405;
+    }, 250);
   }
 };
 
